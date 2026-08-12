@@ -128,17 +128,14 @@ textarea {
   color: var(--text);
 }
 
-.brand-mark {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background: linear-gradient(135deg, #0ea5e9, #22d3ee 48%, #34d399);
-  color: #ffffff;
-  letter-spacing: 0;
-  box-shadow: 0 0 22px rgba(14, 165, 233, 0.24);
+.brand-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 2px 8px rgba(28, 27, 25, 0.12);
+  flex-shrink: 0;
 }
 
 .nav-links {
