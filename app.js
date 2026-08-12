@@ -447,14 +447,6 @@ function bindEvents() {
     });
   }
 
-  document.querySelector('.theme-toggle').addEventListener('click', () => {
-    const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = nextTheme;
-    localStorage.setItem('portfolio-theme', nextTheme);
-    document.querySelector('.theme-toggle').innerHTML = icon(nextTheme === 'dark' ? 'sun' : 'moon');
-    refreshIcons();
-  });
-
   // Create overlay if not present
   let overlay = document.querySelector('.drawer-overlay');
   if (!overlay) {
@@ -501,11 +493,8 @@ function bindEvents() {
 }
 
 function applyTheme() {
-  const savedTheme = localStorage.getItem('portfolio-theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-  document.documentElement.dataset.theme = theme;
-  document.querySelector('.theme-toggle').innerHTML = icon(theme === 'dark' ? 'sun' : 'moon');
+  document.documentElement.dataset.theme = 'light';
+  localStorage.setItem('portfolio-theme', 'light');
 }
 
 function handleContactSubmit(event) {
