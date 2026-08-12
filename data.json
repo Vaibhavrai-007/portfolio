@@ -1,0 +1,122 @@
+{
+  "profile": {
+    "name": "Vaibhav Kumar Rai",
+    "title": "Data Analyst | Data Scientist | Business Intelligence",
+    "location": "Uttar Pradesh, India",
+    "email": "Vaibhavrai769@gmail.com",
+    "phone": "(+91) 9918795919",
+    "github": "https://github.com/Vaibhavrai-007",
+    "linkedin": "https://www.linkedin.com/in/vaibhav-kumar-rai",
+    "resume": "Vaibhav_Kumar_Rai_Resume.pdf",
+    "summary": "Data professional with an MCA from Tezpur University (Central University, CGPA: 7.99), currently gaining hands-on experience as a Data Science Intern at NIELIT, Govt. of India. Built and deployed a machine learning regression model on 19,000+ real-estate records that cut agent-led overpricing by 15%, and an NLP/LLM-powered chatbot used daily by students. Skilled across the analytics stack — SQL, Excel, Power BI, Tableau, and Python — with a track record of turning raw data into clear, decision-ready insights for stakeholders. Open to full-time Data Analyst, Business Analyst, and Data Science roles."
+  },
+  "skillGroups": [
+    {
+      "name": "Data Analytics & BI",
+      "skills": ["Advanced SQL (Joins, Window Functions, Subqueries)", "Excel (Pivot Tables, VLOOKUP, Macros, Power Query)", "Power BI", "Tableau", "Data Modeling", "Dashboard Design", "KPI Tracking", "Exploratory Data Analysis", "Data Storytelling"]
+    },
+    {
+      "name": "Programming & Machine Learning",
+      "skills": ["Python", "Pandas", "NumPy", "Scikit-learn", "XGBoost", "Random Forest", "Regression", "Classification", "NLP", "Large Language Models (LLMs)", "TensorFlow", "PyTorch"]
+    },
+    {
+      "name": "Business & Soft Skills",
+      "skills": ["Stakeholder Communication", "Requirements Gathering", "BRD/FRD Documentation", "Cross-Functional Collaboration", "Agile/Scrum", "Data-Driven Decision Making"]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Data Science Intern",
+      "organization": "NIELIT Janakpuri, Delhi Centre (Govt. of India)",
+      "period": "February 2026 - Present",
+      "project": "Smart-Bridge: AI Chatbot & Analytics Dashboard",
+      "highlights": [
+        "Built an AI-powered chatbot using NLP and Large Language Models for multilingual translation and mock-interview practice, used daily by students.",
+        "Developed a real-time analytics dashboard with Python and SQL to track user engagement and performance metrics, improving retention by 20%.",
+        "Worked as Faculty for data analytics batches, teaching Advanced Excel, Power BI, and core data analytics concepts to student cohorts.",
+        "Streamlined end-to-end data workflows and delivered weekly stakeholder insights using data storytelling techniques."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Smart-Bridge: AI Chatbot & Analytics Dashboard",
+      "type": "Internship Project",
+      "period": "Feb 2026 - Present",
+      "categories": ["NLP", "Web App", "FastAPI"],
+      "technologies": ["NLP", "LLMs", "FastAPI", "Python", "SQL", "Dashboard"],
+      "link": "https://github.com/Vaibhavrai-007/Smart-Bridge-AI-Translator",
+      "description": [
+        "Built an AI-powered chatbot using NLP and LLMs for multilingual translation and mock-interview practice, used daily by students.",
+        "Developed a real-time analytics dashboard with Python and SQL to track user engagement and performance metrics, improving retention by 20%.",
+        "Streamlined end-to-end data workflows and delivered weekly stakeholder insights using data storytelling techniques."
+      ]
+    },
+    {
+      "name": "Gurgaon House Price Prediction",
+      "type": "Machine Learning Project",
+      "period": "June 2025",
+      "categories": ["Machine Learning", "Web App", "Regression"],
+      "technologies": ["Python", "Pandas", "Scikit-learn", "XGBoost", "EDA", "Data Storytelling"],
+      "link": "https://github.com/Vaibhavrai-007/Gurgaon-House-Price-Prediction-for-Transparent-Real-Estate-Transactions",
+      "description": [
+        "Analyzed 19,000+ Gurgaon property listings to uncover agent-driven overpricing patterns of 10-20%, undermining price transparency for home buyers.",
+        "Engineered features, tuned XGBoost and Random Forest models, and deployed via a web interface — reducing overpricing by 15% and saving buyers up to ₹10 Lakhs per transaction across 500+ valuations."
+      ]
+    },
+    {
+      "name": "Weather Intelligence & Climate Analytics Platform (WICAP)",
+      "type": "Personal Project",
+      "period": "Ongoing",
+      "categories": ["Analytics Dashboard", "ETL", "Data Engineering"],
+      "technologies": ["Python", "SQL", "ETL", "Data Warehousing", "Data Quality Framework", "Dashboards"],
+      "link": "https://github.com/Vaibhavrai-007",
+      "description": [
+        "Designing and building an enterprise-grade, end-to-end weather and climate analytics platform covering data ingestion, ETL, warehousing, and interactive dashboards.",
+        "Architecting a data pipeline with a data quality framework (completeness, accuracy, consistency, timeliness) and building trend, seasonal, and anomaly-detection dashboards filterable by geography, date, and metric."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Computer Applications (MCA)",
+      "institution": "Tezpur University (Central University, NAAC A+ Grade)",
+      "period": "2024 - 2026",
+      "details": ["CGPA: 7.99 / 10.0"]
+    },
+    {
+      "degree": "Bachelor of Computer Applications (BCA)",
+      "institution": "SMS Varanasi (MGKVP)",
+      "period": "2021 - 2024",
+      "details": ["CGPA: 7.98 / 10.0"]
+    },
+    {
+      "degree": "Senior Secondary Education (Class XII, CBSE)",
+      "institution": "MJRP Academy, UP",
+      "period": "2021",
+      "details": []
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Data Analytics with Python - IIT Roorkee (NPTEL, 73%)",
+      "url": "https://nptel.ac.in/"
+    },
+    {
+      "name": "The Joy of Computing using Python - IIT Madras (NPTEL, 71%)",
+      "url": "https://nptel.ac.in/"
+    },
+    {
+      "name": "Understanding Incubation & Entrepreneurship - IIT Bombay (NPTEL, 90%)",
+      "url": "https://nptel.ac.in/"
+    },
+    {
+      "name": "Data Science 101 - HP LIFE",
+      "url": "https://www.life-global.org/"
+    },
+    {
+      "name": "The Ultimate Job Ready Data Science Course - CodeWithHarry",
+      "url": "https://www.codewithharry.com/"
+    }
+  ]
+}
