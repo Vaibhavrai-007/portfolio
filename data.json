@@ -1,19 +1,23 @@
 {
   "profile": {
     "name": "Vaibhav Kumar Rai",
-    "title": "Data Analyst | Data Scientist | Business Intelligence",
+    "title": "Data Analyst | Business Analyst | HR Analyst",
     "location": "Uttar Pradesh, India",
     "email": "Vaibhavrai769@gmail.com",
     "phone": "(+91) 9918795919",
     "github": "https://github.com/Vaibhavrai-007",
     "linkedin": "https://www.linkedin.com/in/vaibhav-kumar-rai",
     "resume": "Vaibhav_Kumar_Rai_Resume.pdf",
-    "summary": "Data professional with an MCA from Tezpur University (Central University, CGPA: 7.99), currently gaining hands-on experience as a Data Science Intern at NIELIT, Govt. of India. Built and deployed a machine learning regression model on 19,000+ real-estate records that cut agent-led overpricing by 15%, and an NLP/LLM-powered chatbot used daily by students. Skilled across the analytics stack — SQL, Excel, Power BI, Tableau, and Python — with a track record of turning raw data into clear, decision-ready insights for stakeholders. Open to full-time Data Analyst, Business Analyst, and Data Science roles."
+    "summary": "Fresher Data Analyst, Business Analyst & HR Analyst with an MCA from Tezpur University (Central University, CGPA: 7.99) and 6 months completed Data Science internship at NIELIT Janakpuri (Govt. of India, 16 Feb 2026 – 15 Aug 2026). Proven track record across machine learning, business analytics, and HR workforce intelligence using SQL, Excel, Power BI, Tableau, and Python. Open to full-time Data Analyst, Business Analyst, and HR Analyst roles."
   },
   "skillGroups": [
     {
       "name": "Data Analytics & BI",
       "skills": ["Advanced SQL (Joins, Window Functions, Subqueries)", "Excel (Pivot Tables, VLOOKUP, Macros, Power Query)", "Power BI", "Tableau", "Data Modeling", "Dashboard Design", "KPI Tracking", "Exploratory Data Analysis", "Data Storytelling"]
+    },
+    {
+      "name": "HR Analytics & People Operations",
+      "skills": ["HR Metrics & KPIs", "Employee Attrition Modeling", "Turnover & Retention Analysis", "Workforce Analytics", "CIPD & SHRM Frameworks", "Compensation Parity", "Performance Appraisal Analytics", "Headcount Reporting"]
     },
     {
       "name": "Programming & Machine Learning",
@@ -28,23 +32,24 @@
     {
       "role": "Data Science Intern",
       "organization": "NIELIT Janakpuri, Delhi Centre (Govt. of India)",
-      "period": "February 2026 - Present",
+      "period": "16 Feb 2026 - 15 Aug 2026 (6 Months)",
       "project": "Smart-Bridge: AI Chatbot & Analytics Dashboard",
       "highlights": [
-        "Built an AI-powered chatbot using NLP and Large Language Models for multilingual translation and mock-interview practice, used daily by students.",
-        "Developed a real-time analytics dashboard with Python and SQL to track user engagement and performance metrics, improving retention by 20%.",
-        "Worked as Faculty for data analytics batches, teaching Advanced Excel, Power BI, and core data analytics concepts to student cohorts.",
-        "Streamlined end-to-end data workflows and delivered weekly stakeholder insights using data storytelling techniques."
+        "Completed a 6-month intensive Data Science internship at NIELIT (Govt. of India), engineering end-to-end ML models and data analytics solutions.",
+        "Built an AI-powered chatbot using NLP and Large Language Models for multilingual translation and interview preparation, used daily by students.",
+        "Taught and mentored cohorts on Advanced Excel, Power BI, and practical data analytics methodologies as part of internship training modules.",
+        "Streamlined data reporting pipelines and delivered weekly executive presentations translating complex findings into strategic insights."
       ]
     }
   ],
   "projects": [
     {
       "name": "Smart-Bridge: AI Chatbot & Analytics Dashboard",
-      "type": "Internship Project",
-      "period": "Feb 2026 - Present",
+      "type": "Completed Internship Project",
+      "period": "16 Feb 2026 - 15 Aug 2026",
       "categories": ["NLP", "Web App", "FastAPI"],
       "technologies": ["NLP", "LLMs", "FastAPI", "Python", "SQL", "Dashboard"],
+      "github": "https://github.com/Vaibhavrai-007/Smart-Bridge-AI-Translator",
       "link": "https://github.com/Vaibhavrai-007/Smart-Bridge-AI-Translator",
       "description": [
         "Built an AI-powered chatbot using NLP and LLMs for multilingual translation and mock-interview practice, used daily by students.",
@@ -58,18 +63,47 @@
       "period": "June 2025",
       "categories": ["Machine Learning", "Web App", "Regression"],
       "technologies": ["Python", "Pandas", "Scikit-learn", "XGBoost", "EDA", "Data Storytelling"],
-      "link": "https://github.com/Vaibhavrai-007/Gurgaon-House-Price-Prediction-for-Transparent-Real-Estate-Transactions",
+      "demo": "https://gurgaon-house-price.streamlit.app/",
+      "github": "https://github.com/Vaibhavrai-007/Gurgaon-house-price",
+      "link": "https://gurgaon-house-price.streamlit.app/",
       "description": [
         "Analyzed 19,000+ Gurgaon property listings to uncover agent-driven overpricing patterns of 10-20%, undermining price transparency for home buyers.",
-        "Engineered features, tuned XGBoost and Random Forest models, and deployed via a web interface — reducing overpricing by 15% and saving buyers up to ₹10 Lakhs per transaction across 500+ valuations."
+        "Engineered features, tuned XGBoost and Random Forest models, and deployed via a Streamlit web application — reducing overpricing by 15% and saving buyers up to ₹10 Lakhs per transaction across 500+ valuations."
+      ]
+    },
+    {
+      "name": "Global E-Commerce Revenue Intelligence",
+      "type": "Data Analytics & BI Project",
+      "period": "Jan 2025 - Nov 2025",
+      "categories": ["Data Analytics", "Power BI", "EDA"],
+      "technologies": ["Python", "Pandas", "Power BI", "Pareto Analysis", "EDA", "Data Storytelling"],
+      "github": "https://github.com/Vaibhavrai-007/Global-Ecommerce-Revenue-Intelligence",
+      "description": [
+        "Conducted an executive portfolio analysis across $1.51M in gross merchandise value (GMV), 1,200 orders, 10 international markets, and 8 product categories.",
+        "Implemented Pareto 80/20 concentration modeling demonstrating robust diversification, with 7 of 10 markets contributing to the core 80% revenue benchmark.",
+        "Identified Home Decor as the top category ($232.3K gross volume, $1,442 AOV) alongside peak weekly order velocity patterns on Wednesdays ($277K)."
+      ]
+    },
+    {
+      "name": "HR Attrition & Workforce Retention Analytics Dashboard",
+      "type": "",
+      "period": "2026",
+      "categories": ["Power BI", "Data Analytics", "HR Analytics"],
+      "technologies": ["Excel", "Power BI", "DAX", "Data Modeling", "HR Analytics"],
+      "github": "https://github.com/Vaibhavrai-007/hr-attrition-workforce-analytics",
+      "description": [
+        "Conducted end-to-end People Analytics on 1,400+ employee records (IBM HR Analytics dataset) to identify key drivers of workplace turnover, identifying burnout (30.5% attrition under overtime) and specific high-risk roles (Sales Reps at 39.8%).",
+        "Designed interactive multi-page Power BI dashboard featuring dynamic DAX measures (Attrition Rate, Retention %, Headcount Trends) and custom cohort binning (Tenure, Age groups).",
+        "Delivered actionable HR retention recommendations targeting overtime caps, compensation reviews, and early-career engagement to reduce turnover risk by an estimated 12–15%."
       ]
     },
     {
       "name": "Weather Intelligence & Climate Analytics Platform (WICAP)",
-      "type": "Personal Project",
+      "type": "Ongoing Project",
       "period": "Ongoing",
       "categories": ["Analytics Dashboard", "ETL", "Data Engineering"],
       "technologies": ["Python", "SQL", "ETL", "Data Warehousing", "Data Quality Framework", "Dashboards"],
+      "github": "https://github.com/Vaibhavrai-007",
       "link": "https://github.com/Vaibhavrai-007",
       "description": [
         "Designing and building an enterprise-grade, end-to-end weather and climate analytics platform covering data ingestion, ETL, warehousing, and interactive dashboards.",
@@ -99,24 +133,24 @@
   ],
   "certifications": [
     {
+      "name": "Career Essentials in Data Analysis - Microsoft & LinkedIn",
+      "url": "certificates.html"
+    },
+    {
       "name": "Data Analytics with Python - IIT Roorkee (NPTEL, 73%)",
-      "url": "https://nptel.ac.in/"
+      "url": "certificates.html"
+    },
+    {
+      "name": "Human Resources Foundations - CIPD & LinkedIn",
+      "url": "certificates.html"
     },
     {
       "name": "The Joy of Computing using Python - IIT Madras (NPTEL, 71%)",
-      "url": "https://nptel.ac.in/"
-    },
-    {
-      "name": "Understanding Incubation & Entrepreneurship - IIT Bombay (NPTEL, 90%)",
-      "url": "https://nptel.ac.in/"
-    },
-    {
-      "name": "Data Science 101 - HP LIFE",
-      "url": "https://www.life-global.org/"
+      "url": "certificates.html"
     },
     {
       "name": "The Ultimate Job Ready Data Science Course - CodeWithHarry",
-      "url": "https://www.codewithharry.com/"
+      "url": "certificates.html"
     }
   ]
 }

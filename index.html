@@ -4,19 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vaibhav Kumar Rai | Portfolio</title>
-    <meta name="description" content="Portfolio website for Vaibhav Kumar Rai — Data Analyst, Data Scientist & Business Intelligence professional.">
+    <meta name="description" content="Portfolio website for Vaibhav Kumar Rai — Data Analyst, Business Analyst & HR Analyst.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2026_color_v2">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="styles.css?v=20261001_v9">
     <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="app.js" defer></script>
+    <script src="app.js?v=20261001_v17" defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Vaibhav Kumar Rai",
-      "jobTitle": "Data Analyst | Data Scientist | Business Intelligence",
+      "jobTitle": "Data Analyst | Business Analyst | HR Analyst",
       "alumniOf": "Tezpur University",
       "url": "https://vaibhav-kumar-rai.vercel.app",
       "sameAs": [
@@ -38,6 +41,7 @@
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="certificates.html">Certifications</a>
         <a href="#contact">Contact</a>
       </nav>
       <button class="icon-button menu-toggle" type="button" aria-label="Open menu">
@@ -58,13 +62,63 @@
             <img class="hero-avatar" src="assets/vaibhav-profile-2026.jpg?v=2026" alt="Vaibhav Kumar Rai Headshot">
           </div>
           <p class="hero-name">VAIBHAV KUMAR RAI</p>
-          <p class="hero-subtitle">Data Analyst — Data Scientist — Business Intelligence</p>
+          <p class="hero-subtitle">Data Analyst — Business Analyst — HR Analyst</p>
           <div class="hero-cta-group">
             <a class="button primary" href="Vaibhav_Kumar_Rai_Resume.pdf" download>
               <i data-lucide="download"></i> Download Resume
             </a>
+            <a class="button secondary" href="https://github.com/Vaibhavrai-007" target="_blank" rel="noreferrer" title="Visit Vaibhav's GitHub Profile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub
+            </a>
+            <a class="button secondary" href="https://www.linkedin.com/in/vaibhav-kumar-rai" target="_blank" rel="noreferrer" title="Visit Vaibhav's LinkedIn Profile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9" rx="1"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn
+            </a>
             <a class="button secondary" href="#contact">
               <i data-lucide="mail"></i> Let's Connect
+            </a>
+          </div>
+          <!-- Executive Highlights Strip (Projects, Certifications, Experience) -->
+          <div class="hero-stats-strip" id="hero-stats-strip" aria-label="Key Career Highlights">
+            <a class="stat-card" href="#projects" title="Explore Featured Projects">
+              <div class="stat-icon-wrap">
+                <i data-lucide="folder-git-2"></i>
+              </div>
+              <div class="stat-content">
+                <div class="stat-main-line">
+                  <span class="stat-value" id="stat-projects-count">5</span>
+                  <span class="stat-title">Featured Projects</span>
+                </div>
+                <span class="stat-sub">ML, Real Estate, E-Com & HR</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="stat-arrow"></i>
+            </a>
+
+            <a class="stat-card" href="certificates.html" title="View Verified Certifications">
+              <div class="stat-icon-wrap">
+                <i data-lucide="award"></i>
+              </div>
+              <div class="stat-content">
+                <div class="stat-main-line">
+                  <span class="stat-value" id="stat-certs-count">9</span>
+                  <span class="stat-title">Certifications</span>
+                </div>
+                <span class="stat-sub">Data, Business & HR Analytics</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="stat-arrow"></i>
+            </a>
+
+            <a class="stat-card" href="#experience" title="View Work Experience">
+              <div class="stat-icon-wrap">
+                <i data-lucide="briefcase"></i>
+              </div>
+              <div class="stat-content">
+                <div class="stat-main-line">
+                  <span class="stat-value">6 Months</span>
+                  <span class="stat-title">Internship</span>
+                </div>
+                <span class="stat-sub">16 Feb 2026 – 15 Aug 2026 · NIELIT (Govt. of India)</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="stat-arrow"></i>
             </a>
           </div>
         </div>
@@ -80,15 +134,15 @@
               <div class="badge-clip"></div>
               <div class="badge-card">
                 <div class="badge-card-header-bar">
-                  <span class="badge-status-dot"></span> Live Profile
+                  <span class="badge-status-dot"></span> Available for Roles
                 </div>
                 <div class="badge-photo-wrap">
                   <img class="badge-photo" src="assets/vaibhav-profile-2026.jpg?v=2026" alt="Vaibhav Kumar Rai Headshot">
                 </div>
                 <div class="badge-details">
                   <h3>Vaibhav Kumar Rai</h3>
-                  <p class="badge-title">Data Science Intern</p>
-                  <p class="badge-org">NIELIT Janakpuri (Govt. of India)</p>
+                  <p class="badge-title">Fresher | Data Analyst & Scientist</p>
+                  <p class="badge-org">Tezpur University (MCA '26)</p>
                 </div>
               </div>
             </div>
@@ -100,7 +154,7 @@
           <div class="bio-column">
             <h2 class="bio-heading">Hi, I'm Vaibhav</h2>
             <p class="bio-text">
-              I am a <span class="highlight">Data professional with an MCA from Tezpur University</span>, currently gaining hands-on experience as a Data Science Intern at NIELIT, Govt. of India. Built and deployed a machine learning regression model on 19,000+ real-estate records that cut agent-led overpricing by 15%, and an NLP/LLM-powered chatbot used daily by students. Skilled across the analytics stack — SQL, Excel, Power BI, Tableau, and Python — with a track record of turning raw data into clear, decision-ready insights for stakeholders.
+              I am a <span class="highlight">Data professional with an MCA from Tezpur University</span>, with 6 months completed hands-on experience as a Data Science Intern at NIELIT Janakpuri (Govt. of India, 16 Feb 2026 – 15 Aug 2026). Built and deployed machine learning regression models on 19,000+ real-estate records cutting agent-led overpricing by 15%, an NLP/LLM chatbot used daily by students, and comprehensive HR workforce attrition dashboards. Skilled across SQL, Excel, Power BI, Tableau, and Python with a proven track record of converting raw data into decision-ready insights for stakeholders.
             </p>
             
             <div class="info-columns">
@@ -108,14 +162,9 @@
               <div class="info-col">
                 <h4 class="col-title">EXPERIENCE</h4>
                 <div class="col-item">
-                  <span class="col-item-title">Data Science Intern</span>
+                  <span class="col-item-title">Data Science Intern (Completed)</span>
                   <span class="col-item-sub">NIELIT Janakpuri, Delhi Centre (Govt. of India)</span>
-                  <span class="col-item-date">Feb 2026 - Present</span>
-                </div>
-                <div class="col-item">
-                  <span class="col-item-title">Faculty — Data Analytics</span>
-                  <span class="col-item-sub">Advanced Excel, Power BI</span>
-                  <span class="col-item-date">2026 - Present</span>
+                  <span class="col-item-date">16 Feb 2026 – 15 Aug 2026 (6 Months)</span>
                 </div>
               </div>
               

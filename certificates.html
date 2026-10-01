@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Certifications | Vaibhav Kumar Rai</title>
+    <meta name="description" content="Verified professional certifications and credentials in Data Analytics, Machine Learning, Cloud Computing, and Software Development earned by Vaibhav Kumar Rai.">
+    
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Certifications | Vaibhav Kumar Rai">
+    <meta property="og:description" content="Verified professional certifications in Data Analytics, Machine Learning, Cloud Computing, and Software Development.">
+    <meta property="og:image" content="assets/portfolio-wallpaper.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Certifications | Vaibhav Kumar Rai">
+    <meta name="twitter:description" content="Verified professional certifications in Data Analytics, Machine Learning, and Cloud Computing.">
+    
+    <!-- Fonts & Styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="styles.css?v=20261001_v9">
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="certificates.js?v=20261001_v13" defer></script>
+  </head>
+  <body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Site Header -->
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Go to home">
+        <img class="brand-avatar" src="assets/vaibhav-headshot.jpg" alt="Vaibhav Kumar Rai Logo">
+        <span>Vaibhav Kumar Rai</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Portfolio</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="certificates.html" class="nav-link-active" aria-current="page">Certifications</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button class="icon-button menu-toggle" type="button" aria-label="Open menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="cert-page-main" id="main-content">
+      <div class="section-wrap">
+        
+        <!-- Breadcrumb & Hero Header -->
+        <header class="cert-hero-wrap">
+          <nav class="cert-back-nav" aria-label="Breadcrumb">
+            <a href="index.html" class="cert-back-link">
+              <i data-lucide="arrow-left"></i>
+              <span>Back to Portfolio</span>
+            </a>
+          </nav>
+          
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            Verified Credentials
+          </div>
+          
+          <h1 class="cert-title">Certifications</h1>
+          <p class="cert-subtitle">
+            A comprehensive, verified record of technical certifications and continuous learning across Data Analytics, Machine Learning, Cloud Architecture, and Software Engineering.
+          </p>
+        </header>
+
+        <!-- Interactive Filter & Search Controls -->
+        <section class="cert-controls-panel" aria-label="Filter and search certificates">
+          <div class="cert-search-row">
+            <div class="cert-search-box">
+              <i data-lucide="search" aria-hidden="true"></i>
+              <input 
+                type="search" 
+                id="cert-search-input" 
+                class="cert-search-input" 
+                placeholder="Search by certificate name, issuer, skill or credential ID..." 
+                aria-label="Search certificates"
+              >
+            </div>
+            <div class="cert-count-badge" id="cert-count-badge" aria-live="polite">
+              Loading certificates...
+            </div>
+          </div>
+          
+          <!-- Category Filter Pills -->
+          <div class="cert-filter-pills" id="cert-filter-pills" role="toolbar" aria-label="Category filters">
+            <!-- Dynamically populated by certificates.js -->
+          </div>
+        </section>
+
+        <!-- Certifications Container (Grouped by Year) -->
+        <section id="cert-container" class="cert-container" aria-label="Certificates list">
+          <!-- Dynamic Year Groups & Cards will be injected here -->
+        </section>
+
+        <!-- Zero State Fallback -->
+        <div id="cert-empty" class="cert-empty-state" style="display: none;">
+          <div class="empty-icon-wrap">
+            <i data-lucide="search-x"></i>
+          </div>
+          <h3>No matching certificates found</h3>
+          <p>Try searching for a different keyword or clearing your active filters.</p>
+          <button type="button" class="button secondary" id="reset-filter-btn">
+            <i data-lucide="rotate-ccw"></i> Reset Filters
+          </button>
+        </div>
+
+        <!-- Error State Fallback -->
+        <div id="cert-error" class="cert-empty-state" style="display: none;">
+          <div class="empty-icon-wrap error-icon">
+            <i data-lucide="alert-circle"></i>
+          </div>
+          <h3>Unable to load certificates</h3>
+          <p id="cert-error-msg">Please check your connection or serve via local HTTP server.</p>
+          <button type="button" class="button primary" id="retry-fetch-btn">
+            <i data-lucide="refresh-cw"></i> Retry
+          </button>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <span>Vaibhav Kumar Rai • Data Analyst, Business Analyst &amp; HR Analyst</span>
+      <a href="#main-content" class="back-to-top" aria-label="Back to top">Back to top ↑</a>
+    </footer>
+  </body>
+</html>

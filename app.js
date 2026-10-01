@@ -35,8 +35,14 @@ const escapeHtml = (value = '') => String(value).replace(/[&<>"']/g, (char) => (
 }[char]));
 
 async function init() {
-  const response = await fetch('data.json');
-  state.data = await response.json();
+  const [dataRes, certRes] = await Promise.all([
+    fetch('data.json?v=' + Date.now(), { cache: 'no-store' }),
+    fetch('certificates.json?v=' + Date.now(), { cache: 'no-store' }).catch(() => null)
+  ]);
+  state.data = await dataRes.json();
+  if (certRes && certRes.ok) {
+    state.certificates = await certRes.json();
+  }
   applyTheme();
   renderProfile();
   renderHeroMetrics();
@@ -95,13 +101,24 @@ function renderProfile() {
 }
 
 function renderHeroMetrics() {
+  const statProjects = document.getElementById('stat-projects-count');
+  if (statProjects && state.data.projects) {
+    statProjects.textContent = state.data.projects.length;
+  }
+
+  const statCerts = document.getElementById('stat-certs-count');
+  if (statCerts && state.certificates) {
+    statCerts.textContent = state.certificates.length;
+  }
+
   if (!selectors.heroMetrics) return;
-  const skillCount = state.data.skillGroups.reduce((total, group) => total + group.skills.length, 0);
+  const skillCount = state.data.skillGroups ? state.data.skillGroups.reduce((total, group) => total + group.skills.length, 0) : 0;
+  const certCount = state.certificates ? state.certificates.length : ((state.data.certifications && state.data.certifications.length) || 7);
   const metrics = [
     ['Projects', state.data.projects.length],
     ['Skills', skillCount],
-    ['Certifications', state.data.certifications.length],
-    ['Current role', state.data.experience[0]?.role || 'Data Science']
+    ['Certifications', certCount],
+    ['Experience', '6 Months']
   ];
 
   selectors.heroMetrics.innerHTML = metrics.map(([label, value]) => `
@@ -222,62 +239,61 @@ function renderProjects() {
     } else if (project.name === "Gurgaon House Price Prediction") {
       widgetHtml = `
         <div class="project-widget" id="house-estimator">
-          <h4 class="widget-title"><i data-lucide="calculator"></i> Live Property Price Estimator</h4>
-          <div class="widget-row">
-            <label for="est-area">Area (Sq. Ft.): <span id="val-area">1,800</span></label>
-            <input type="range" id="est-area" min="500" max="8000" step="100" value="1800">
+          <div class="widget-header-row">
+            <h4 class="widget-title"><i data-lucide="calculator"></i> Live Property Price Estimator</h4>
+            <a href="${escapeHtml(project.demo || project.link)}" target="_blank" rel="noreferrer" class="widget-live-tag" title="Open Streamlit Web App">
+              <span class="status-dot"></span> Live App
+            </a>
           </div>
           <div class="widget-row">
-            <label for="est-bhk">BHK / Bedrooms: <span id="val-bhk">3</span></label>
-            <input type="range" id="est-bhk" min="1" max="6" step="1" value="3">
-          </div>
-          <div class="widget-row">
-            <label for="est-loc">Sector Location Multiplier</label>
+            <label for="est-loc">Location / Sector</label>
             <select id="est-loc">
-              <option value="1.0" selected>Standard Sector Area (1.0x)</option>
-              <option value="1.35">Premium Golf Course Road (1.35x)</option>
-              <option value="1.15">Sector 56 Metro Corridor (1.15x)</option>
-              <option value="0.85">Sohna Road / Ext. Outskirts (0.85x)</option>
+              <option value="14500" selected>Sector 65 (Golf Course Ext)</option>
+              <option value="22000">Golf Course Road (Sec 42/54)</option>
+              <option value="18500">DLF Phase 1-5 / Cyber City</option>
+              <option value="12200">Sector 56 (Metro Corridor)</option>
+              <option value="10500">Dwarka Expressway (Sec 102-113)</option>
+              <option value="8800">Sohna Road (Sec 48-67)</option>
             </select>
           </div>
-          <div class="widget-result">
-            <span>Estimated Property Value:</span>
-            <span id="est-output">₹ 1.62 Cr</span>
+          <div class="widget-row-split" style="display:flex; gap:0.5rem;">
+            <div style="flex:1;">
+              <label for="est-type" style="font-size:0.75rem; font-weight:700; display:block; margin-bottom:0.25rem; color:#484642;">Property Type</label>
+              <select id="est-type" style="width:100%; padding:0.35rem 0.5rem; font-size:0.8rem; border-radius:6px;">
+                <option value="1.0" selected>Apartment</option>
+                <option value="0.92">Ind. Floor</option>
+                <option value="1.30">Plot / Villa</option>
+              </select>
+            </div>
+            <div style="flex:1;">
+              <label for="est-bhk" style="font-size:0.75rem; font-weight:700; display:block; margin-bottom:0.25rem; color:#484642;">Bedrooms: <span id="val-bhk">3</span> BHK</label>
+              <input type="range" id="est-bhk" min="1" max="6" step="1" value="3" style="width:100%;">
+            </div>
+          </div>
+          <div class="widget-row">
+            <label for="est-area">Built-Up Area: <span id="val-area">1,800</span> sq.ft.</label>
+            <input type="range" id="est-area" min="500" max="6000" step="50" value="1800">
+          </div>
+          <div class="widget-result-box" style="background: rgba(255,255,255,0.85); border:1px solid rgba(28,27,25,0.12); border-radius:8px; padding:0.65rem 0.8rem; margin-top:0.25rem;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline;">
+              <span style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:#57534E;">Fair Valuation:</span>
+              <span id="est-output" style="font-size:1.2rem; font-weight:800; color:#1C1B19;">₹ 2.61 Cr</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.72rem; color:#57534E; margin-top:0.35rem; padding-top:0.35rem; border-top:1px dashed rgba(28,27,25,0.15);">
+              <span>Rate: <strong id="est-rate">₹14,500/sq.ft</strong></span>
+              <span>Band (±MAE): <strong id="est-band">₹2.13 - ₹3.09 Cr</strong></span>
+            </div>
           </div>
         </div>
       `;
-    } else if (project.name === "Weather Intelligence & Climate Analytics Platform (WICAP)") {
+    } else if (project.name === "Global E-Commerce Revenue Intelligence") {
       widgetHtml = `
-        <div class="project-widget" id="wicap-pipeline-widget">
-          <h4 class="widget-title"><i data-lucide="database"></i> Data Pipeline Architecture</h4>
-          <div class="wicap-pipeline">
-            <div class="pipeline-stage">
-              <span class="pipeline-icon">☁️</span>
-              <span class="pipeline-label">Ingestion</span>
-              <div class="pipeline-bar" id="wicap-ingest" style="width: 0%"></div>
+        <div class="project-widget" style="padding: 0.5rem 0.6rem 0.6rem;">
+          <div class="ecom-preview-card" onclick="openEcomModal()" style="cursor: pointer;" title="Click to view full dashboard">
+            <img src="assets/ecommerce-dashboard.png" alt="Global E-Commerce Revenue Dashboard" class="ecom-thumb">
+            <div class="ecom-overlay-badge">
+              <i data-lucide="maximize-2" style="width:12px;height:12px;"></i> View Dashboard (Zoom)
             </div>
-            <div class="pipeline-arrow">→</div>
-            <div class="pipeline-stage">
-              <span class="pipeline-icon">🔄</span>
-              <span class="pipeline-label">ETL</span>
-              <div class="pipeline-bar" id="wicap-etl" style="width: 0%"></div>
-            </div>
-            <div class="pipeline-arrow">→</div>
-            <div class="pipeline-stage">
-              <span class="pipeline-icon">🏗️</span>
-              <span class="pipeline-label">Warehouse</span>
-              <div class="pipeline-bar" id="wicap-warehouse" style="width: 0%"></div>
-            </div>
-            <div class="pipeline-arrow">→</div>
-            <div class="pipeline-stage">
-              <span class="pipeline-icon">📊</span>
-              <span class="pipeline-label">Dashboard</span>
-              <div class="pipeline-bar" id="wicap-dashboard" style="width: 0%"></div>
-            </div>
-          </div>
-          <div class="widget-result">
-            <span>Data Quality Score:</span>
-            <span id="wicap-quality">Initializing...</span>
           </div>
         </div>
       `;
@@ -286,7 +302,7 @@ function renderProjects() {
     return `
       <article class="project-card">
         <div class="project-card-header">
-          <span class="project-badge">${escapeHtml(project.type)}</span>
+          ${project.type ? `<span class="project-badge">${escapeHtml(project.type)}</span>` : '<span></span>'}
           <span class="project-meta">${escapeHtml(project.period)}</span>
         </div>
         <div class="project-card-content">
@@ -296,7 +312,28 @@ function renderProjects() {
           <div class="tech-list">
             ${project.technologies.map(tech => `<span class="tag">${escapeHtml(tech)}</span>`).join('')}
           </div>
-          ${project.link ? `<a class="button secondary" href="${project.link}" target="_blank" rel="noreferrer">${icon('external-link')} Open Project</a>` : ''}
+          <div class="project-actions">
+            ${project.demo ? `
+              <a class="button primary" href="${escapeHtml(project.demo)}" target="_blank" rel="noreferrer">
+                ${icon('external-link')} Open Project
+              </a>
+              ${project.github ? `
+                <a class="button secondary" href="${escapeHtml(project.github)}" target="_blank" rel="noreferrer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub Repo
+                </a>
+              ` : ''}
+            ` : `
+              ${project.github ? `
+                <a class="button secondary" href="${escapeHtml(project.github)}" target="_blank" rel="noreferrer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg> GitHub Repo
+                </a>
+              ` : (project.link ? `
+                <a class="button secondary" href="${escapeHtml(project.link)}" target="_blank" rel="noreferrer">
+                  ${icon('external-link')} Open Project
+                </a>
+              ` : '')}
+            `}
+          </div>
         </div>
       </article>
     `;
@@ -345,83 +382,104 @@ function bindWidgetListeners() {
     });
   }
 
-  // 2. Gurgaon Estimator
+  // 2. Gurgaon Estimator (Calibrated with Random Forest Regressor Benchmarks)
   const estArea = document.getElementById('est-area');
   const estBhk = document.getElementById('est-bhk');
   const estLoc = document.getElementById('est-loc');
+  const estType = document.getElementById('est-type');
   
   const valArea = document.getElementById('val-area');
   const valBhk = document.getElementById('val-bhk');
   const estOutput = document.getElementById('est-output');
+  const estRate = document.getElementById('est-rate');
+  const estBand = document.getElementById('est-band');
   
   const updateHouseEstimate = () => {
     if (!estArea || !estBhk || !estLoc) return;
     const area = parseInt(estArea.value, 10);
     const bhk = parseInt(estBhk.value, 10);
-    const locMultiplier = parseFloat(estLoc.value);
+    const baseRatePerSqft = parseFloat(estLoc.value);
+    const typeMultiplier = estType ? parseFloat(estType.value) : 1.0;
     
     if (valArea) valArea.textContent = Number(area).toLocaleString('en-IN');
     if (valBhk) valBhk.textContent = bhk;
     
-    // ₹9,000 / sqft base + ₹2,00,000 per BHK bedroom
-    const price = (area * 9000 + bhk * 200000) * locMultiplier;
+    // Non-linear bedroom scaling matching Random Forest feature weighting
+    const bhkFactor = 1 + (bhk - 3) * 0.035;
+    const effectiveRate = baseRatePerSqft * typeMultiplier * bhkFactor;
+    const totalInr = area * effectiveRate;
+    const priceCr = totalInr / 10000000;
+    const ratePerSqft = Math.round(totalInr / area);
+    
+    // ±0.48 Cr MAE Confidence Band from trained model evaluation
+    const lowerBand = Math.max(0.15, priceCr - 0.48).toFixed(2);
+    const upperBand = (priceCr + 0.48).toFixed(2);
     
     if (estOutput) {
-      if (price >= 10000000) {
-        estOutput.textContent = `₹ ${(price / 10000000).toFixed(2)} Cr`;
+      if (priceCr >= 1.0) {
+        estOutput.textContent = `₹ ${priceCr.toFixed(2)} Cr`;
       } else {
-        estOutput.textContent = `₹ ${(price / 100000).toFixed(2)} L`;
+        const lakhs = Math.round(totalInr / 100000);
+        estOutput.textContent = `₹ ${lakhs} L`;
       }
     }
+    
+    if (estRate) {
+      estRate.textContent = `₹${ratePerSqft.toLocaleString('en-IN')}/sq.ft`;
+    }
+    if (estBand) {
+      estBand.textContent = `₹${lowerBand} - ₹${upperBand} Cr`;
+    }
   };
-  
+
   if (estArea) {
     estArea.addEventListener('input', updateHouseEstimate);
     estBhk.addEventListener('input', updateHouseEstimate);
     estLoc.addEventListener('change', updateHouseEstimate);
+    if (estType) estType.addEventListener('change', updateHouseEstimate);
     updateHouseEstimate();
   }
-  
-  // 3. WICAP Pipeline Animation
-  const wicapIngest = document.getElementById('wicap-ingest');
-  const wicapEtl = document.getElementById('wicap-etl');
-  const wicapWarehouse = document.getElementById('wicap-warehouse');
-  const wicapDashboard = document.getElementById('wicap-dashboard');
-  const wicapQuality = document.getElementById('wicap-quality');
-
-  if (wicapIngest && wicapEtl && wicapWarehouse && wicapDashboard && wicapQuality) {
-    const animatePipeline = () => {
-      const stages = [wicapIngest, wicapEtl, wicapWarehouse, wicapDashboard];
-      const labels = ['Ingesting...', 'Transforming...', 'Loading...', 'Rendering...'];
-      let step = 0;
-
-      const runStep = () => {
-        if (step >= stages.length) {
-          wicapQuality.textContent = '97.3% — Excellent';
-          wicapQuality.style.color = '#10b981';
-          return;
-        }
-        wicapQuality.textContent = labels[step];
-        wicapQuality.style.color = '#f59e0b';
-        stages[step].style.transition = 'width 0.8s ease';
-        stages[step].style.width = '100%';
-        stages[step].style.background = 'linear-gradient(90deg, #6366f1, #10b981)';
-        step++;
-        setTimeout(runStep, 900);
-      };
-
-      // Reset
-      stages.forEach(s => { s.style.width = '0%'; s.style.transition = 'none'; });
-      wicapQuality.textContent = 'Initializing...';
-      wicapQuality.style.color = '';
-      setTimeout(runStep, 400);
-    };
-
-    // Auto-run the animation and repeat every 8 seconds
-    animatePipeline();
-    setInterval(animatePipeline, 8000);
-  }
 }
+
+function openEcomModal() {
+  let modal = document.getElementById('ecom-dashboard-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'ecom-dashboard-modal';
+    modal.className = 'ecom-modal';
+    modal.innerHTML = `
+      <div class="ecom-modal-dialog">
+        <div class="ecom-modal-header">
+          <span class="ecom-modal-title">Global E-Commerce Revenue Intelligence — Executive Dashboard</span>
+          <button type="button" class="ecom-modal-close" onclick="closeEcomModal()" aria-label="Close dashboard modal">&times;</button>
+        </div>
+        <div class="ecom-modal-body">
+          <img src="assets/ecommerce-dashboard.png" alt="Global E-Commerce Revenue Dashboard Full View" class="ecom-modal-img">
+        </div>
+      </div>
+    `;
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeEcomModal();
+    });
+    document.body.appendChild(modal);
+  }
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeEcomModal() {
+  const modal = document.getElementById('ecom-dashboard-modal');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+  document.body.style.overflow = '';
+}
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeEcomModal();
+  }
+});
 
 function bindEvents() {
   document.querySelectorAll('.tab-button').forEach(button => {

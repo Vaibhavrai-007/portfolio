@@ -10,12 +10,16 @@ Static, responsive portfolio website generated from the provided resume PDF only
 * `styles.css` - Responsive light/dark theme styling.
 * `app.js` - Dynamic rendering, project filters, tabs, theme toggle, and contact form behavior.
 * `data.json` - Resume content used by the site.
+* `certificates.html` - Dedicated Certifications subpage.
+* `certificates.json` - Dynamic dataset for all certifications.
+* `certificates.js` - Dynamic rendering, search, category filtering, lightbox modal, and domain section grouping for certificates.
+* `assets/certificates/` - Directory storing certificate PDFs.
 * `assets/portfolio-wallpaper.png` - Generated hero wallpaper used by the site.
 * `Vaibhav_Kumar_Rai_Resume.pdf` - Downloadable resume.
 
 ## Run Locally
 
-Because the site loads `data.json` via `fetch`, opening `index.html` directly in a browser won't work — it needs to be served over HTTP:
+Because the site loads `data.json` and `certificates.json` via `fetch`, opening `index.html` directly in a browser won't work — it needs to be served over HTTP:
 
 ```
 cd portfolio
@@ -27,6 +31,31 @@ Then open:
 ```
 http://localhost:8080
 ```
+or for certifications:
+```
+http://localhost:8080/certificates.html
+```
+
+## Adding a New Certificate
+
+To add a new certificate without touching HTML or CSS:
+1. Drop the certificate PDF into `assets/certificates/` (e.g. `assets/certificates/my-certificate.pdf`).
+2. Open `certificates.json` and add a new entry to the array:
+   ```json
+   {
+     "id": "my-new-cert",
+     "name": "Name of the Certification",
+     "issuer": "Coursera / Google / AWS / Meta / NPTEL",
+     "issueDate": "March 2026",
+     "year": 2026,
+     "category": "Data Analytics",
+     "credentialId": "CERT-ID-12345",
+     "verifyUrl": "https://verification-link.com",
+     "pdfUrl": "assets/certificates/my-certificate.pdf",
+     "skills": ["Python", "SQL", "Power BI"]
+   }
+   ```
+3. Save, commit, and push. The page will automatically render the new certificate, group it under the respective year, update the counter, and enable filtering & search for it.
 
 ## Contact Form
 
