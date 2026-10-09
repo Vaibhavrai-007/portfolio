@@ -1,5 +1,20 @@
 [
   {
+    "id": "linkedin-microsoft-business-analysis",
+    "name": "Career Essentials in Business Analysis",
+    "issuer": "Microsoft & LinkedIn",
+    "issueDate": "Oct 09, 2026",
+    "year": 2026,
+    "grade": "Completed",
+    "category": "Business Analysis",
+    "section": "Data & Business Analytics",
+    "credentialId": "ce5e5016478cdf53a314fa297798276c218fcc02f4d6e19f8c4ff9daa42997aa",
+    "verifyUrl": "",
+    "pdfUrl": "assets/certificates/linkedin-microsoft-business-analysis.pdf",
+    "image": "assets/certificates/linkedin-microsoft-business-analysis.jpg",
+    "skills": ["Requirements Gathering", "Project Management", "Business Analysis"]
+  },
+  {
     "id": "linkedin-microsoft-data-analysis",
     "name": "Career Essentials in Data Analysis",
     "issuer": "Microsoft & LinkedIn",
